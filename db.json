@@ -1,19 +1,44 @@
 {
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "title": "Learn React",
+      "status": true
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "title": "Learn Node",
+      "status": true
+    },
+    {
+      "id": 3,
+      "title": "Learn Next",
+      "status": false
+    },
+    {
+      "title": "Have tea",
+      "status": false,
+      "id": 4
+    },
+    {
+      "title": "Have Coffee",
+      "status": false,
+      "id": 5
+    },
+    {
+      "title": "Built Porfile",
+      "status": false,
+      "id": 6
+    },
+    {
+      "title": "Buy Books",
+      "status": false,
+      "id": 7
+    },
+    {
+      "title": "Take a long Breath",
+      "status": false,
+      "id": 8
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

@@ -9,23 +9,43 @@ export const Todos = () => {
   }, []);
 
   const getData = async () => {
+  
     const data = await fetch(
-      'https://vitejs-vite-qv1xjj--8080.local.webcontainer.io/posts'
+      'https://vitejs-vite-qv1xjj--8080.local.webcontainer.io/users'
     ).then((d) => d.json());
-    setTodo(data);
-    
+    setTodo(data);   
     
   };
+
+
   return (
     <div>
-      <input type="text" placeholder="" />
-      <button>Add Todos</button>
+      <input onChange={ (e)=> setText(e.target.value) } type="text" placeholder="enter todo" />
+      <button onClick={ ()=> {
+          const payload = {
+            title:text,
+            status:false
+         };
+
+         const data =  fetch('https://vitejs-vite-qv1xjj--8080.local.webcontainer.io/users', {
+         method: 'POST',
+         body: JSON.stringify(payload),
+         headers: { 'Content-Type': 'application/json' }
+         }).then(()=>{
+           getData();
+         });
+         
+         
+      }        
+      //  axios.post("url", payload);  just one line in axios
+      }>Add Todo</button>
       <ul>
-      {todos.map(t => 
       
-        <li key={t.id}>{t.title}</li>
-      
-      )}
+      {      
+      todos.map(t =>       
+        <li key={t.id}>{t.title}</li>      
+               )
+      }
       </ul>
     </div>
   );
