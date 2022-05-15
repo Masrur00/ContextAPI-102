@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 export const Todos = () => {
   const [todos, setTodo] = useState([]);
   const [text, setText] = useState('');
+  const [loading,setLoading ] = useState(true);
 
   useEffect(() => {
     getData();
@@ -14,11 +15,12 @@ export const Todos = () => {
       'https://vitejs-vite-qv1xjj--8080.local.webcontainer.io/users'
     ).then((d) => d.json());
     setTodo(data);   
+    setLoading(false);
     
   };
 
 
-  return (
+  return (loading)? "Loading..." :(
     <div>
       <input onChange={ (e)=> setText(e.target.value) } type="text" placeholder="enter todo" />
       <button onClick={ ()=> {
